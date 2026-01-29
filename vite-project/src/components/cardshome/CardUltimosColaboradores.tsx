@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { buscarColaboradores } from "../../service/Service";
-import { UserCirclePlus } from "@phosphor-icons/react";
+import { UserCirclePlusIcon } from "@phosphor-icons/react";
 
 interface Colaborador {
   id: number;
@@ -47,7 +47,7 @@ export function CardUltimosColaboradores() {
             </p>
           </div>
           <div className="text-green-900">
-            <UserCirclePlus size={28} weight="duotone" />
+            <UserCirclePlusIcon size={28} weight="duotone" />
           </div>
         </div>
 

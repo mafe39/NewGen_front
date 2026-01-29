@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { MoneyWavy } from "@phosphor-icons/react";
+import { MoneyWavyIcon } from "@phosphor-icons/react";
 import { api } from "../../service/Service";
 
 interface Props {
@@ -20,7 +20,6 @@ function CardTotalFolha({ colaboradorId }: Props) {
         );
         const folhas = response.data;
 
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const soma = folhas.reduce(
           (acc: number, item: any) => acc + (item.salarioFinal ?? 0),
           0
@@ -44,7 +43,7 @@ function CardTotalFolha({ colaboradorId }: Props) {
         
         <div className="p-6 pb-4 text-left">
           <div className="w-fit p-3 rounded-lg">
-            <MoneyWavy size={28} className="text-[#2B3D4F]" />
+            <MoneyWavyIcon size={28} className="text-[#2B3D4F]" />
           </div>
 
           <p className="text-4xl font-bold text-gray-800 mt-4 leading-none">

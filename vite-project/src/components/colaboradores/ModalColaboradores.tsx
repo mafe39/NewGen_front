@@ -16,12 +16,10 @@ function ModalColaboradores({ fechar, atualizarLista }: Props) {
     status: true,
   });
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function handleChange(e: any) {
     setForm({ ...form, [e.target.name]: e.target.value });
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   function validarColaborador(dados: any): boolean {
     if (!dados.nome || !dados.email || !dados.cargo || !dados.salario) {
       ToastAlerta("Preencha todos os campos obrigatórios.", "erro");
@@ -41,7 +39,7 @@ function ModalColaboradores({ fechar, atualizarLista }: Props) {
     return true;
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  
   async function salvar(e: any) {
     e.preventDefault();
 

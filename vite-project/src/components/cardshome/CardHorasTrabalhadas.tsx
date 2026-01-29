@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { Timer } from "@phosphor-icons/react";
+import { TimerIcon } from "@phosphor-icons/react";
 import { buscarFolhasPagamento } from "../../service/Service";
 
 export function CardHorasTrabalhadas() {
@@ -13,7 +13,6 @@ export function CardHorasTrabalhadas() {
         setLoading(true);
         const folhas = await buscarFolhasPagamento();
         const totalHoras = folhas.reduce(
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
           (acc: number, folha: any) => acc + Number(folha.totalHoras || 0),
           0
         );
@@ -35,7 +34,7 @@ export function CardHorasTrabalhadas() {
     
         <div className="p-6 pb-4">
           <div className="w-fit p-3 rounded-lg">
-            <Timer size={28} className="text-[#2B3D4F]" />
+            <TimerIcon size={28} className="text-[#2B3D4F]" />
           </div>
 
           <p className="text-4xl font-bold text-gray-800 mt-4">

@@ -1,8 +1,8 @@
 import logo from "../assets/logo-newgen-escuro2.png";
 import {
-  LinkedinLogo,
-  InstagramLogo,
-  EnvelopeSimple,
+  LinkedinLogoIcon,
+  InstagramLogoIcon,
+  EnvelopeSimpleIcon,
 } from "@phosphor-icons/react";
 
 export function Footer() {
@@ -46,7 +46,7 @@ export function Footer() {
                 aria-label="LinkedIn"
                 className="hover:text-green-700 transition-colors"
               >
-                <LinkedinLogo size={36} weight="bold" />
+                <LinkedinLogoIcon size={36} weight="bold" />
               </a>
 
               <a
@@ -56,7 +56,7 @@ export function Footer() {
                 aria-label="Instagram"
                 className="hover:text-green-700 transition-colors"
               >
-                <InstagramLogo size={36} weight="bold" />
+                <InstagramLogoIcon size={36} weight="bold" />
               </a>
 
               <a
@@ -64,7 +64,7 @@ export function Footer() {
                 aria-label="Email"
                 className="hover:text-green-700 transition-colors"
               >
-                <EnvelopeSimple size={36} weight="bold" />
+                <EnvelopeSimpleIcon size={36} weight="bold" />
               </a>
             </div>
 

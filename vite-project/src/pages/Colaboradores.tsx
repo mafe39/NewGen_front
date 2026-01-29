@@ -41,7 +41,7 @@ export default function Colaboradores() {
   if (loading) return <p>Carregando colaboradores...</p>;
 
   return (
-    <div className="min-h-screen bg-[#E5FCF5] py-10 flex justify-center">
+<div className="min-h-screen bg-[#E5FCF5] pt-24 pb-10 flex justify-center">
       <div className="w-full max-w-6xl bg-white rounded-2xl shadow-md p-8">
         <h1 className="text-2xl font-bold mb-6">
           Colaboradores & Folha de Pagamento

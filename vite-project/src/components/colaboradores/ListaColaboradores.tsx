@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import CardColaboradores from "./CardColaboradores";
 import ModalColaboradores from "./ModalColaboradores";
 import type { Colaboradores } from "../../models/Colaboradores";
@@ -27,32 +26,39 @@ function ListaColaboradores() {
     }
   }
 
-  if (isLoading) {
-    return <p>Carregando...</p>;
-  }
+  if (isLoading) return <p>Carregando...</p>;
 
   const colaboradoresFiltrados = colaboradores.filter((c) => {
     const nomeMatch = c.nome.toLowerCase().includes(search.toLowerCase());
-
     const statusMatch =
       statusFiltro === "todos" ||
-      (statusFiltro === "ativo" && c.status === true) ||
-      (statusFiltro === "inativo" && c.status === false);
+      (statusFiltro === "ativo" && c.status) ||
+      (statusFiltro === "inativo" && !c.status);
 
     return nomeMatch && statusMatch;
   });
 
   return (
-    <>
-      <div className="bg-white rounded-2xl shadow p-6">
-        <h1 className="text-3xl font-semibold text-gray-800 text-center mb-12">
+    
+    <div className="bg-[#E5FCF5] min-h-screen py-12">
+
+      
+      <div className="max-w-7xl mx-auto px-6">
+
+        <h1 className="text-3xl font-semibold text-gray-800 text-center mb-1">
           Gerenciar Colaboradores
         </h1>
 
-        <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
+        <p className="text-center text-gray-600 mb-10">
+  Gerencie todos os colaboradores do sistema
+</p>
+
+    
+
+        <div className="flex flex-wrap items-center justify-between gap-4 mb-8">
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-[#B3DEC1] my-7 px-4 py-2 rounded-lg font-medium hover:opacity-90"
+            className="bg-[#B3DEC1] px-4 py-2 rounded-lg font-medium hover:opacity-90"
           >
             + Novo Colaborador
           </button>
@@ -81,13 +87,14 @@ function ListaColaboradores() {
           </div>
         </div>
 
-        <div className="mt-3 bg-white rounded-2xl p-6">
+        <div className="bg-white rounded-2xl shadow p-6 w-full">
+
           <h2 className="text-lg font-semibold text-gray-800 mb-4">
             Últimos Colaboradores
           </h2>
 
           <div className="overflow-x-auto">
-            <table className="min-w-full text-sm">
+            <table className="w-full text-sm">
               <thead className="bg-[#DCEFE6] text-gray-700">
                 <tr>
                   <th className="text-left px-4 py-3">Nome</th>
@@ -131,7 +138,7 @@ function ListaColaboradores() {
           atualizarLista={buscarColaboradores}
         />
       )}
-    </>
+    </div>
   );
 }
 

@@ -2,9 +2,8 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { api } from "../../service/Service";
-import { CreditCard } from "@phosphor-icons/react";
+import { CreditCardIcon } from "@phosphor-icons/react";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Colaborador {
   id: number;
   nome: string;
@@ -70,7 +69,7 @@ export function CardFolhasRecentes() {
             </p>
           </div>
           <div className="text-green-600">
-            <CreditCard size={28} weight="duotone" />
+            <CreditCardIcon size={28} weight="duotone" />
           </div>
         </div>
 
