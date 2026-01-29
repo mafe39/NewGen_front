@@ -1,14 +1,14 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { api } from "../../service/Service";
-import { CreditCard } from "@phosphor-icons/react"; // Adicionei um ícone para combinar com o de colaboradores
+import { CreditCard } from "@phosphor-icons/react";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Colaborador {
   id: number;
   nome: string;
-  cargo?: string; 
-  salario?: number; 
+  cargo?: string;
+  salario?: number;
 }
 
 export function CardFolhasRecentes() {
@@ -20,10 +20,10 @@ export function CardFolhasRecentes() {
       try {
         setLoading(true);
         const response = await api.get("/folha-pagamento");
-        
-        const lista = Array.isArray(response.data) 
-          ? response.data 
-          : (response.data?.folhas || []);
+
+        const lista = Array.isArray(response.data)
+          ? response.data
+          : response.data?.folhas || [];
 
         const ultimosCadastrados = [...lista]
           .sort((a, b) => b.id - a.id)
@@ -41,7 +41,7 @@ export function CardFolhasRecentes() {
   }, []);
 
   const formatarNome = (item: any) => {
-    const col = item.colaboradores || item; 
+    const col = item.colaboradores || item;
     if (Array.isArray(col)) return col[0]?.nome || "Sem nome";
     return col?.nome || "Sem nome";
   };
@@ -58,38 +58,42 @@ export function CardFolhasRecentes() {
     <div className="w-full flex justify-center mt-8 px-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md overflow-hidden flex flex-col">
         
-        {/* Header - Padronizado com o de colaboradores */}
+        {/* Header */}
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
           <div>
-            <h2 className="text-gray-800 font-bold text-lg">Folhas Recentes</h2>
-            <p className="text-gray-500 text-xs uppercase tracking-wider">Pagamentos processados</p>
+            <h2 className="text-gray-800 font-bold text-lg">
+              Folhas Recentes
+            </h2>
+            <p className="text-gray-500 text-xs uppercase tracking-wider">
+              Pagamentos processados
+            </p>
           </div>
           <div className="text-green-600">
             <CreditCard size={28} weight="duotone" />
           </div>
         </div>
 
-        {/* Content - Padding ajustado para não bater no botão */}
+        {/* Content */}
         <div className="p-4 flex-grow">
           {loading ? (
             <div className="flex justify-center py-10">
               <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500"></div>
             </div>
           ) : dados.length === 0 ? (
-            <p className="text-center text-gray-500 py-10">Nenhum registro recente.</p>
+            <p className="text-center text-gray-500 py-10">
+              Nenhum registro recente.
+            </p>
           ) : (
             <div className="space-y-3">
               {dados.map((item, index) => (
-                <div 
+                <div
                   key={item.id || index}
                   className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
                 >
-                  <div className="flex flex-col">
-                    <span className="font-semibold text-gray-900 text-sm">
-                      {formatarNome(item)}
-                    </span>
-                  </div>
-                  
+                  <span className="font-semibold text-gray-900 text-sm">
+                    {formatarNome(item)}
+                  </span>
+
                   <div className="text-right">
                     <span className="block font-bold text-green-600 text-sm">
                       {formatarValor(item)}
@@ -104,13 +108,13 @@ export function CardFolhasRecentes() {
           )}
         </div>
 
-        {/* Footer - Colado na base do card */}
-        <button 
-          className="w-full py-4 bg-gray-100 text-black text-sm font-semibold hover:bg-gray-200 hover:font-bold transition-all border-t border-gray-100 mt-auto"
-          onClick={() => window.alert("Navegar para listagem completa")}
+        {/* Footer → ROTA */}
+        <Link
+          to="/folha"
+          className="w-full text-center py-4 bg-gray-100 text-black text-sm font-semibold hover:bg-gray-200 hover:font-bold transition-all border-t border-gray-100 mt-auto"
         >
           Ver todos os registros
-        </button>
+        </Link>
       </div>
     </div>
   );

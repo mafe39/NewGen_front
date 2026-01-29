@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import { Timer } from "@phosphor-icons/react"; // Corrigido para o nome padrão do ícone Timer
+import { Link } from "react-router-dom";
+import { Timer } from "@phosphor-icons/react";
 import { buscarFolhasPagamento } from "../../service/Service";
 
 export function CardHorasTrabalhadas() {
@@ -29,12 +30,11 @@ export function CardHorasTrabalhadas() {
 
   return (
     <div className="w-full flex justify-center mt-8 px-4">
-      {/* overflow-hidden garante que o rodapé cinza respeite o arredondamento do card */}
       <div className="bg-white rounded-xl shadow-md w-70 overflow-hidden flex flex-col">
         
-        {/* Container de Conteúdo com padding controlado */}
+        {/* Conteúdo */}
         <div className="p-6 pb-4">
-          <div className=" w-fit p-3 rounded-lg">
+          <div className="w-fit p-3 rounded-lg">
             <Timer size={28} className="text-[#2B3D4F]" />
           </div>
 
@@ -47,15 +47,15 @@ export function CardHorasTrabalhadas() {
           </h2>
         </div>
 
-        {/* Rodapé totalmente rente (sem margens ou espaços brancos) */}
-        <button 
+        {/* Rodapé → ROTA */}
+        <Link
+          to="/colaboradores"
           className="mt-auto bg-gray-100 px-6 py-4 text-sm text-gray-700 flex justify-end hover:bg-gray-200 transition-all border-t border-gray-100"
-          onClick={() => window.alert("Ver todos")}
         >
           <span className="font-medium hover:font-bold transition-all text-black">
             Ver todos →
           </span>
-        </button>
+        </Link>
       </div>
     </div>
   );
