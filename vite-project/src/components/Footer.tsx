@@ -1,4 +1,4 @@
-import logo from "../assets/logo-newgen-escuro.png";
+import logo from "../assets/logo-newgen-escuro2.png";
 import {
   LinkedinLogo,
   InstagramLogo,
@@ -7,8 +7,8 @@ import {
 
 export function Footer() {
   return (
-    <footer className="bg-[#B3DEC1]/90 backdrop-blur rounded-2xl border border-green-200/60 shadow-sm m-4">
-      <div className="max-w-screen-xl mx-auto px-6 py-10">
+    <footer className="bg-[#B3DEC1]/90 backdrop-blur rounded-xl border border-green-200/60 shadow-sm">
+      <div className="max-w-screen-xl mx-auto px-2 md:px-4 py-5">
 
         {/* LINHA SUPERIOR */}
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
@@ -19,7 +19,7 @@ export function Footer() {
               src={logo}
               alt="Logo New-Gen"
               className="
-                h-20 
+                h-20
                 object-contain
                 drop-shadow-sm
                 transition-transform
@@ -32,81 +32,41 @@ export function Footer() {
             </span>
           </div>
 
-          {/* LINKS + REDES */}
-          <div className="flex flex-col gap-4 md:items-end">
+          {/* CONTATO + REDES */}
+          <div className="flex flex-col gap-3 md:items-end">
 
-            {/* LINKS */}
-            <nav className="flex gap-6 text-green-900 font-medium">
+            <p className="text-sm text-green-900 font-medium">
+              Entre em contato conosco:
+            </p>
+
+            <div className="flex gap-6 text-green-900">
               <a
                 href="#"
-                className="
-                  relative
-                  after:absolute
-                  after:left-0
-                  after:-bottom-1
-                  after:h-px
-                  after:w-0
-                  after:bg-green-700
-                  after:transition-all
-                  hover:after:w-full
-                "
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="hover:text-green-700 transition-colors"
               >
-                Início
+                <LinkedinLogo size={36} weight="bold" />
               </a>
 
               <a
                 href="#"
-                className="
-                  relative
-                  after:absolute
-                  after:left-0
-                  after:-bottom-1
-                  after:h-px
-                  after:w-0
-                  after:bg-green-700
-                  after:transition-all
-                  hover:after:w-full
-                "
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="hover:text-green-700 transition-colors"
               >
-                Sobre nós
+                <InstagramLogo size={36} weight="bold" />
               </a>
-            </nav>
 
-            {/* REDES SOCIAIS */}
-            <div className="flex flex-col items-end gap-2">
-              <p className="text-xs text-green-900/70">
-                Entre em contato conosco:
-              </p>
-
-              <div className="flex gap-6 text-green-900">
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="LinkedIn"
-                  className="hover:text-green-700 transition-colors"
-                >
-                  <LinkedinLogo size={28} weight="bold" />
-                </a>
-
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="hover:text-green-700 transition-colors"
-                >
-                  <InstagramLogo size={28} weight="bold" />
-                </a>
-
-                <a
-                  href="mailto:contato@newgen.com"
-                  aria-label="Email"
-                  className="hover:text-green-700 transition-colors"
-                >
-                  <EnvelopeSimple size={28} weight="bold" />
-                </a>
-              </div>
+              <a
+                href="mailto:contato@newgen.com"
+                aria-label="Email"
+                className="hover:text-green-700 transition-colors"
+              >
+                <EnvelopeSimple size={36} weight="bold" />
+              </a>
             </div>
 
           </div>
@@ -116,7 +76,7 @@ export function Footer() {
         <hr className="my-8 border-green-300/70" />
 
         {/* COPYRIGHT */}
-        <div className="text-center text-xs text-green-900/70">
+        <div className="text-center text-base text-green-900/70">
           © 2024 New-Gen. Todos os direitos reservados.
         </div>
 
@@ -124,4 +84,3 @@ export function Footer() {
     </footer>
   );
 }
-

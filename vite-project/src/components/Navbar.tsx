@@ -14,15 +14,17 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const menuItems = ["Início", "Colaboradores", "Folha de Pagamento"];
+
   return (
     <>
-      {/* ESPAÇADOR PARA NÃO "PULAR" O CONTEÚDO */}
+      {/* ESPAÇADOR */}
       <div className="h-28" />
 
       <nav
         className={`
           fixed top-0 left-0 z-50 w-full
-          bg-[#B3DEC1]
+          bg-[#92cca9]
           rounded-b-2xl
           transition-all duration-300
           ${scrolled ? "shadow-lg" : "shadow-none"}
@@ -32,21 +34,7 @@ export function Navbar() {
           <div className="relative flex h-28 items-center justify-between">
 
             {/* LOGO */}
-            <div
-              className="
-                flex items-center
-                h-16
-                px-2
-                rounded-full
-                bg-green-300
-                shadow-sm
-                overflow-hidden
-                transition-all
-                duration-300
-                hover:bg-green-400
-                hover:shadow-lg
-              "
-            >
+            <div className="flex items-center h-16 overflow-hidden">
               <img
                 src={logo}
                 alt="Logo New-Gen"
@@ -58,6 +46,7 @@ export function Navbar() {
                   transition-transform
                   duration-300
                   hover:scale-105
+                  hover:opacity-90
                 "
               />
             </div>
@@ -70,10 +59,10 @@ export function Navbar() {
                 gap-12
                 text-green-900
                 font-medium
-                text-base
+                text-lg
               "
             >
-              {["Colaboradores", "Folha de Pagamento", "Novo"].map((item) => (
+              {menuItems.map((item) => (
                 <li key={item} className="relative cursor-pointer group">
                   <span>{item}</span>
                   <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-green-700 transition-all duration-300 group-hover:w-full" />
@@ -111,7 +100,7 @@ export function Navbar() {
           {/* MENU MOBILE */}
           {menuOpen && (
             <ul className="md:hidden flex flex-col gap-2 pb-6 text-green-900 font-medium">
-              {["Colaboradores", "Folha de Pagamento", "Novo"].map((item) => (
+              {menuItems.map((item) => (
                 <li
                   key={item}
                   className="px-3 py-2 rounded-lg hover:bg-green-200"
