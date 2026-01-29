@@ -35,16 +35,16 @@ export default function CardFolhaDePagamento() {
       const colaboradores: Colaborador[] = await rColab.json()
       const folhas: Folha[] = await rFolha.json()
 
-      //colaboradores ativo
+      
       const ativos = colaboradores.filter(c => c.status === true)
 
       setTotalColaboradores(ativos.length)
 
-      //total das folhas
+     
       const soma = folhas.reduce((acc, f) => acc + Number(f.salarioFinal), 0)
       setTotalFolha(Number(soma.toFixed(2)))
 
-      //quem NAO tem folha/pendente lancamento
+      
       const idsComFolha = new Set(folhas.map(f => f.colaboradores.id))
 
       const semFolha = ativos.filter(c => !idsComFolha.has(c.id))

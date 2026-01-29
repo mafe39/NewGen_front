@@ -48,7 +48,7 @@ export default function Colaboradores() {
         </h1>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Lista de Colaboradores */}
+         
           <div>
             <h2 className="text-xl font-semibold mb-4">Colaboradores</h2>
 
@@ -68,7 +68,7 @@ export default function Colaboradores() {
             </ul>
           </div>
 
-          {/* Detalhes da Folha */}
+         
           <div>
             <h2 className="text-xl font-semibold mb-4">
               Detalhes da Folha

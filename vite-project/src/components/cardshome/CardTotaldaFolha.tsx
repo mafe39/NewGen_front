@@ -41,7 +41,7 @@ function CardTotalFolha({ colaboradorId }: Props) {
     <div className="w-full flex justify-center mt-8 px-4">
       <div className="bg-white rounded-xl shadow-md w-70 overflow-hidden flex flex-col">
         
-        {/* Conteúdo */}
+        
         <div className="p-6 pb-4 text-left">
           <div className="w-fit p-3 rounded-lg">
             <MoneyWavy size={28} className="text-[#2B3D4F]" />
@@ -61,7 +61,7 @@ function CardTotalFolha({ colaboradorId }: Props) {
           </h2>
         </div>
 
-        {/* Rodapé → ROTA */}
+        
         <Link
           to="/folha"
           className="mt-auto bg-gray-100 px-6 py-4 text-sm text-gray-700 flex justify-end hover:bg-gray-200 transition-all border-t border-gray-100"

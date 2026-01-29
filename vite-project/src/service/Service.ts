@@ -1,16 +1,11 @@
 import axios from "axios";
 import type { FolhaDePagamento } from "../models/FolhaDePagamento";
 
-/* ==========================
-   AXIOS INSTANCE
-========================== */
 export const api = axios.create({
   baseURL: "http://localhost:3000",
 });
 
-/* ==========================
-   MODELS
-========================== */
+
 export interface Colaborador {
   id: number;
   nome: string;
@@ -18,9 +13,7 @@ export interface Colaborador {
   email?: string;
 }
 
-/* ==========================
-   MÉTODOS GENÉRICOS (REUTILIZÁVEIS)
-========================== */
+
 export const buscar = async <T>(
   url: string,
   setDados: (dados: T) => void,
@@ -59,17 +52,13 @@ export const deletar = async (
   await api.delete(url, header);
 };
 
-/* ==========================
-   COLABORADORES (ESPECÍFICOS)
-========================== */
+
 export async function listarColaboradores(): Promise<Colaborador[]> {
   const response = await api.get<Colaborador[]>("/colaboradores");
   return response.data;
 }
 
-/* ==========================
-   FOLHA DE PAGAMENTO
-========================== */
+
 export async function listarFolhasPagamento(): Promise<FolhaDePagamento[]> {
   const response = await api.get<FolhaDePagamento[]>("/folha-pagamento");
   return response.data;
@@ -109,10 +98,7 @@ export async function atualizarFolhaPagamento(dados: {
 export async function deletarFolhaPagamento(id: number) {
   await api.delete(`/folha-pagamento/${id}`);
 }
-// ==========================
-// ALIASES PARA CÓDIGO ANTIGO
-// (compatibilidade temporária)
-// ==========================
+
 
 export async function buscarColaboradores() {
   return listarColaboradores();

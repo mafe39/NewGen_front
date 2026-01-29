@@ -10,10 +10,9 @@ export function Footer() {
     <footer className="bg-[#B3DEC1]/90 backdrop-blur rounded-xl border border-green-200/60 shadow-sm">
       <div className="max-w-screen-xl mx-auto px-2 md:px-4 py-5">
 
-        {/* LINHA SUPERIOR */}
+        
         <div className="flex flex-col gap-10 md:flex-row md:items-center md:justify-between">
 
-          {/* LOGO + FRASE */}
           <div className="flex items-center gap-6">
             <img
               src={logo}
@@ -32,7 +31,7 @@ export function Footer() {
             </span>
           </div>
 
-          {/* CONTATO + REDES */}
+       
           <div className="flex flex-col gap-3 md:items-end">
 
             <p className="text-sm text-green-900 font-medium">
@@ -72,12 +71,12 @@ export function Footer() {
           </div>
         </div>
 
-        {/* DIVISÓRIA */}
+     
         <hr className="my-8 border-green-300/70" />
 
-        {/* COPYRIGHT */}
+       
         <div className="text-center text-base text-green-900/70">
-          © 2024 New-Gen. Todos os direitos reservados.
+          © 2026 New-Gen. Todos os direitos reservados.
         </div>
 
       </div>

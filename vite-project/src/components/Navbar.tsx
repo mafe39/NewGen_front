@@ -13,7 +13,7 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto px-6">
         <div className="relative flex h-28 items-center justify-between">
 
-          {/* LOGO → HOME */}
+          
           <Link to="/" className="flex items-center h-16">
             <img
               src={logo}
@@ -22,7 +22,7 @@ export function Navbar() {
             />
           </Link>
 
-          {/* MENU CENTRAL */}
+         
           <ul className="hidden md:flex absolute left-1/2 -translate-x-1/2 gap-12 text-green-900 font-medium text-lg">
             {menuItems.map((item) => (
               <li key={item.path} className="relative group">
@@ -39,13 +39,12 @@ export function Navbar() {
                   {item.label}
                 </NavLink>
 
-                {/* underline */}
+               
                 <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-green-700 transition-all group-hover:w-full" />
               </li>
             ))}
           </ul>
 
-          {/* USUÁRIO */}
           <div className="hidden md:block text-sm text-green-900">
             Admin
           </div>

@@ -36,7 +36,7 @@ export function CardUltimosColaboradores() {
     <div className="w-full flex justify-center mt-8 px-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md overflow-hidden">
         
-        {/* Header */}
+       
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
           <div>
             <h2 className="text-gray-800 font-bold text-lg">
@@ -51,7 +51,7 @@ export function CardUltimosColaboradores() {
           </div>
         </div>
 
-        {/* Content */}
+       
         <div className="p-4">
           {loading ? (
             <div className="flex justify-center py-10">
@@ -92,7 +92,7 @@ export function CardUltimosColaboradores() {
           )}
         </div>
 
-        {/* Footer → ROTA */}
+    
         <Link
           to="/colaboradores"
           className="block w-full text-center py-4 bg-gray-100 text-black text-sm font-semibold hover:bg-gray-200 hover:font-bold transition-all border-t border-gray-100"
