@@ -44,7 +44,7 @@ export default function CardFolhaDePagamento() {
       const soma = folhas.reduce((acc, f) => acc + Number(f.salarioFinal), 0)
       setTotalFolha(Number(soma.toFixed(2)))
 
-      //quem NÃO tem folha/pendente lancamento
+      //quem NAO tem folha/pendente lancamento
       const idsComFolha = new Set(folhas.map(f => f.colaboradores.id))
 
       const semFolha = ativos.filter(c => !idsComFolha.has(c.id))
