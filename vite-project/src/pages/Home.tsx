@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import CardColaboradoresHome from "../componentes/cardshome/CardColaboradoresHome";
+import CardColaboradoresHome from "../components/cardshome/CardColaboradoresHome";
 
-import { CardFolhasRecentes } from "../componentes/cardshome/CardFolhasRecentes";
-import CardHorasTrabalhadas from "../componentes/cardshome/CardHorasTrabalhadas";
-import CardTotalFolha from "../componentes/cardshome/CardTotaldaFolha";
-import { CardUltimosColaboradores } from "../componentes/cardshome/CardUltimosColaboradores";
+import { CardFolhasRecentes } from "../components/cardshome/CardFolhasRecentes";
+import CardHorasTrabalhadas from "../components/cardshome/CardHorasTrabalhadas";
+import CardTotalFolha from "../components/cardshome/CardTotaldaFolha";
+import { CardUltimosColaboradores } from "../components/cardshome/CardUltimosColaboradores";
 import { buscarColaboradores } from "../service/Service";
 
 export function Home() {
