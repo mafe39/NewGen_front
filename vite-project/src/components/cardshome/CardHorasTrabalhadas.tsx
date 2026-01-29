@@ -53,7 +53,8 @@ export function CardHorasTrabalhadas() {
           onClick={() => window.alert("Ver todos")}
         >
           <span className="font-medium hover:font-bold transition-all text-black">
-            Ver todos →
+            
+            
           </span>
         </button>
       </div>

@@ -31,6 +31,7 @@ export function CardUltimosColaboradores() {
     carregarColaboradores();
   }, []);
 
+
   return (
     <div className="w-full flex justify-center mt-8 px-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md overflow-hidden">

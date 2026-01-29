@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Users } from "@phosphor-icons/react";
 import { buscarColaboradores } from "../../service/Service";
+import { Link } from "react-router-dom";
 
 export function CardColaboradoresHome() {
   const [total, setTotal] = useState(0);
@@ -47,7 +48,9 @@ export function CardColaboradoresHome() {
           onClick={() => window.alert("Ver todos")}
         >
           <span className="font-medium hover:font-bold transition-all text-black">
-            Ver todos →
+            
+             Ver todos → 
+          
           </span>
         </button>
       </div>
