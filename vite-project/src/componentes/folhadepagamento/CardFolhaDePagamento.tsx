@@ -35,7 +35,7 @@ export default function CardFolhaDePagamento() {
       const colaboradores: Colaborador[] = await rColab.json()
       const folhas: Folha[] = await rFolha.json()
 
-      //colaboradores ativos
+      //colaboradores ativo
       const ativos = colaboradores.filter(c => c.status === true)
 
       setTotalColaboradores(ativos.length)
