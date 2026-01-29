@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useEffect, useState } from "react";
 import { api } from "../../service/Service";
-import { CreditCard } from "@phosphor-icons/react"; // Adicionei um ícone para combinar com o de colaboradores
+import { CreditCard } from "@phosphor-icons/react";
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 interface Colaborador {
@@ -58,18 +58,18 @@ export function CardFolhasRecentes() {
     <div className="w-full flex justify-center mt-8 px-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md overflow-hidden flex flex-col">
         
-        {/* Header - Padronizado com o de colaboradores */}
+     
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
           <div>
             <h2 className="text-gray-800 font-bold text-lg">Folhas Recentes</h2>
             <p className="text-gray-500 text-xs uppercase tracking-wider">Pagamentos processados</p>
           </div>
-          <div className="text-green-600">
+          <div className="text-green-900">
             <CreditCard size={28} weight="duotone" />
           </div>
         </div>
 
-        {/* Content - Padding ajustado para não bater no botão */}
+     
         <div className="p-4 flex-grow">
           {loading ? (
             <div className="flex justify-center py-10">
@@ -104,7 +104,7 @@ export function CardFolhasRecentes() {
           )}
         </div>
 
-        {/* Footer - Colado na base do card */}
+      
         <button 
           className="w-full py-4 bg-gray-100 text-black text-sm font-semibold hover:bg-gray-200 hover:font-bold transition-all border-t border-gray-100 mt-auto"
           onClick={() => window.alert("Navegar para listagem completa")}

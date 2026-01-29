@@ -18,7 +18,7 @@ export function CardUltimosColaboradores() {
       try {
         setLoading(true);
         const data = await buscarColaboradores();
-        // Pega os últimos 6 e inverte para mostrar os mais recentes no topo
+        
         const ultimos = [...data].slice(-6).reverse();
         setColaboradores(ultimos);
       } catch (error) {
@@ -34,8 +34,7 @@ export function CardUltimosColaboradores() {
   return (
     <div className="w-full flex justify-center mt-8 px-4">
       <div className="bg-white rounded-2xl shadow-lg w-full max-w-md overflow-hidden">
-        
-        {/* Header - Padronizado */}
+  
         <div className="bg-gray-50 px-6 py-4 border-b border-gray-100 flex items-center justify-between">
           <div>
             <h2 className="text-gray-800 font-bold text-lg">Últimos Colaboradores</h2>
@@ -46,7 +45,6 @@ export function CardUltimosColaboradores() {
           </div>
         </div>
 
-        {/* Content - Lista Limpa (Sem ID) */}
         <div className="p-4">
           {loading ? (
             <div className="flex justify-center py-10">
@@ -62,7 +60,7 @@ export function CardUltimosColaboradores() {
                   className="flex items-center justify-between p-3 rounded-xl hover:bg-gray-50 transition-colors border border-transparent hover:border-gray-100"
                 >
                   <div className="flex items-center gap-3">
-                    {/* Avatar com as iniciais do nome */}
+              
                     <div className="h-10 w-10 rounded-full bg-green-950 flex items-center justify-center text-gray-300 font-bold text-xs shrink-0">
                       {c.nome.substring(0, 2).toUpperCase()}
                     </div>
@@ -88,7 +86,6 @@ export function CardUltimosColaboradores() {
           )}
         </div>
 
-        {/* Footer */}
         <button 
           className="w-full py-4 bg-gray-100 text-black text-sm font-semibold hover:bg-gray-200 hover:font-bold transition-all border-t border-gray-100"
           onClick={() => window.alert("Navegar para listagem de colaboradores")}
