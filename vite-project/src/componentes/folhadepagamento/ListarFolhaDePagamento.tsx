@@ -1,16 +1,22 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import TabelaFolhaDePagamento from "./TabelaFolhaDePagamento"
 import ModalFolhaDePagamento from "./ModalFolhadePagamento"
 import { FolhaDePagamento } from "../../models/FolhaDePagamento"
 import { listarFolhasPagamento } from "../../service/Service"
 
 export default function ListarFolhaDePagamento() {
-  const [aberto, setAberto] = useState(false)
+  //inicia a lista aberta
+  const [aberto, setAberto] = useState(true)
   const [folhas, setFolhas] = useState<FolhaDePagamento[]>([])
   const [carregando, setCarregando] = useState(false)
   const [modalAberto, setModalAberto] = useState(false)
   const [folhaEditando, setFolhaEditando] =
     useState<FolhaDePagamento | null>(null)
+
+  //ja carrega ao entrar na página
+  useEffect(() => {
+    carregarFolhas()
+  }, [])
 
   async function carregarFolhas() {
     try {
@@ -26,7 +32,6 @@ export default function ListarFolhaDePagamento() {
 
   function clicar() {
     setAberto(prev => !prev)
-    if (!aberto) carregarFolhas()
   }
 
   function abrirNovaFolha() {
@@ -51,7 +56,7 @@ export default function ListarFolhaDePagamento() {
           onClick={clicar}
           className="text-emerald-800 font-medium hover:underline"
         >
-          {aberto ? "Ocultar folhas" : "Ver todas as folhas"}
+          {aberto ? "Ocultar folhas" : "Mostrar folhas"}
         </button>
 
         <button

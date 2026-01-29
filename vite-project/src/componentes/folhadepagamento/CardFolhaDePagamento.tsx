@@ -23,6 +23,10 @@ export default function CardFolhaDePagamento() {
   const [totalFolha, setTotalFolha] = useState<number | null>(null)
   const [pendentes, setPendentes] = useState<number | null>(null)
 
+  const [mostrarColab, setMostrarColab] = useState(false)
+  const [mostrarFolha, setMostrarFolha] = useState(false)
+  const [mostrarPendentes, setMostrarPendentes] = useState(false)
+
   useEffect(() => {
     buscarDados()
   }, [])
@@ -35,22 +39,15 @@ export default function CardFolhaDePagamento() {
       const colaboradores: Colaborador[] = await rColab.json()
       const folhas: Folha[] = await rFolha.json()
 
-      //colaboradores ativos
       const ativos = colaboradores.filter(c => c.status === true)
-
       setTotalColaboradores(ativos.length)
 
-      //total das folhas
       const soma = folhas.reduce((acc, f) => acc + Number(f.salarioFinal), 0)
       setTotalFolha(Number(soma.toFixed(2)))
 
-      //quem NÃO tem folha/pendente lancamento
       const idsComFolha = new Set(folhas.map(f => f.colaboradores.id))
-
       const semFolha = ativos.filter(c => !idsComFolha.has(c.id))
-
       setPendentes(semFolha.length)
-
     } catch (e) {
       console.warn("Backend não disponível para os cards")
     }
@@ -63,88 +60,105 @@ export default function CardFolhaDePagamento() {
     })
   }
 
-  return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-
-      <div className="bg-white rounded-xl border border-emerald-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
-        <div className="flex">
-          <div className="w-2 bg-emerald-700" />
-          <div className="p-6 flex flex-col justify-between w-full min-h-[150px]">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-base text-emerald-800 font-medium">
-                  Colaboradores
-                </p>
-                <p className="text-3xl font-semibold text-gray-900 mt-1">
-                  {totalColaboradores ?? "--"}
-                </p>
-              </div>
-              <Users className="text-emerald-700" size={24} />
-            </div>
+  function Card({
+    titulo,
+    icon,
+    mostrando,
+    setMostrando,
+    valor,
+    rodape
+  }: {
+    titulo: string
+    icon: React.ReactNode
+    mostrando: boolean
+    setMostrando: (v: boolean) => void
+    valor: React.ReactNode
+    rodape?: React.ReactNode
+  }) {
+    return (
+      <div
+        onClick={() => setMostrando(!mostrando)}
+        className="group bg-white rounded-xl border border-emerald-200 shadow-sm overflow-hidden flex flex-col justify-between cursor-pointer hover:shadow-md transition-all"
+      >
+        <div className="flex items-center justify-between p-4">
+          <div className="flex items-center gap-3 text-emerald-800 font-medium">
+            {icon}
+            <span>{titulo}</span>
           </div>
         </div>
 
-        <div className="bg-emerald-50 border-t border-emerald-200 px-6 py-3">
+        <div className="flex items-center justify-center py-6 min-h-[60px]">
+          {!mostrando ? (
+            <div className="flex flex-col items-center justify-center text-gray-400 select-none transition-all">
+              <div className="flex items-center gap-2 text-sm opacity-70 group-hover:opacity-100 transition-all duration-300 transform group-hover:-translate-y-1">
+                <span>Clique para visualizar</span>
+                <span className="transition-all duration-300 transform group-hover:translate-x-1">→</span>
+              </div>
+            </div>
+          ) : (
+            <div className="text-3xl font-semibold text-gray-900 transition-all duration-300">
+              {valor}
+            </div>
+          )}
+        </div>
+
+        {mostrando && rodape && (
+          <div
+            className="bg-emerald-50 border-t border-emerald-200 px-6 py-3"
+            onClick={(e) => e.stopPropagation()} // evita fechar quando clica no botão do rodapé
+          >
+            {rodape}
+          </div>
+        )}
+      </div>
+    )
+  }
+
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+
+      <Card
+        titulo="Colaboradores"
+        icon={<Users />}
+        mostrando={mostrarColab}
+        setMostrando={setMostrarColab}
+        valor={totalColaboradores ?? "--"}
+        rodape={
           <button
             onClick={() => navigate("/colaboradores")}
             className="text-sm text-emerald-800 hover:underline font-medium"
           >
             Ver todos os colaboradores →
           </button>
-        </div>
-      </div>
+        }
+      />
 
-      <div className="bg-white rounded-xl border border-emerald-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
-        <div className="flex">
-          <div className="w-2 bg-emerald-700" />
-          <div className="p-6 flex flex-col justify-between w-full min-h-[150px]">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-base text-emerald-800 font-medium">
-                  Total da Folha
-                </p>
-                <p className="text-2xl font-semibold text-gray-900 mt-1">
-                  {totalFolha !== null ? formatarDinheiro(totalFolha) : "--"}
-                </p>
-              </div>
-              <Wallet className="text-emerald-700" size={24} />
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-emerald-50 border-t border-emerald-200 px-6 py-3">
+      <Card
+        titulo="Total da Folha"
+        icon={<Wallet />}
+        mostrando={mostrarFolha}
+        setMostrando={setMostrarFolha}
+        valor={totalFolha !== null ? formatarDinheiro(totalFolha) : "--"}
+        rodape={
           <span className="text-sm text-emerald-800 font-medium opacity-70">
             Ver todas as folhas → (EM BREVE)
           </span>
-        </div>
-      </div>
+        }
+      />
 
-      <div className="bg-white rounded-xl border border-emerald-200 shadow-sm hover:shadow-md transition-all overflow-hidden flex flex-col">
-        <div className="flex">
-          <div className="w-2 bg-emerald-700" />
-          <div className="p-6 flex flex-col justify-between w-full min-h-[150px]">
-            <div className="flex items-start justify-between">
-              <div>
-                <p className="text-base text-emerald-800 font-medium">
-                  Folhas Pendentes
-                </p>
-                <p className="text-3xl font-semibold text-gray-900 mt-1">
-                  {pendentes ?? "--"}
-                </p>
-              </div>
-              <Clock className="text-emerald-700" size={24} />
-            </div>
-          </div>
-        </div>
-
-        <div className="bg-emerald-50 border-t border-emerald-200 px-6 py-3">
+      <Card
+        titulo="Folhas Pendentes"
+        icon={<Clock />}
+        mostrando={mostrarPendentes}
+        setMostrando={setMostrarPendentes}
+        valor={pendentes ?? "--"}
+        rodape={
           <span className="text-sm text-emerald-800 font-medium opacity-70">
             Ver folhas pendentes → (EM BREVE)
           </span>
-        </div>
-      </div>
+        }
+      />
 
     </div>
   )
 }
-  

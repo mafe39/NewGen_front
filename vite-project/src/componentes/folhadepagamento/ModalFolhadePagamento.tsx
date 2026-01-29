@@ -31,7 +31,7 @@ export default function ModalFolhaDePagamento({
 
   const editando = !!folha;
 
-  //  Carrega somente colaboradores SEM folha e com status true
+  //carrega os colaboradores SEM folha e com status true
   useEffect(() => {
     if (aberto && !editando) {
       Promise.all([listarColaboradores(), listarFolhasPagamento()]).then(
@@ -48,7 +48,7 @@ export default function ModalFolhaDePagamento({
     }
   }, [aberto, editando]);
 
-  // Preenche campos quando estiver editando
+  //preenche os campos com os valores que vao ser alterados
   useEffect(() => {
     if (folha) {
       setTotalHoras(String(folha.totalHoras));
