@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import CardColaboradoresHome from "../componentes/cardshome/CardColaboradoresHome";
-
 import { CardFolhasRecentes } from "../componentes/cardshome/CardFolhasRecentes";
 import CardHorasTrabalhadas from "../componentes/cardshome/CardHorasTrabalhadas";
 import CardTotalFolha from "../componentes/cardshome/CardTotaldaFolha";
@@ -47,3 +46,4 @@ export function Home() {
     </div>
   );
 }
+
