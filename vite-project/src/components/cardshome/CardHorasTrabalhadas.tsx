@@ -50,8 +50,8 @@ export function CardHorasTrabalhadas() {
         {/* Rodapé → ROTA */}
         <Link
           to="/colaboradores"
-          className="mt-auto bg-gray-100 px-6 py-4 text-sm text-gray-700 flex justify-end hover:bg-gray-200 transition-all border-t border-gray-100"
-        >
+          className="mt-auto bg-gray-100 px-6 py-4 text-sm text-gray-700 flex justify-end hover:bg-gray-200 transition-all border-t border-gray-100 hover:font-bold"
+        > Ver todos →
           <span className="font-medium hover:font-bold transition-all text-black">
             
             

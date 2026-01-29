@@ -52,7 +52,7 @@ function ListaColaboradores() {
         <div className="flex flex-wrap items-center justify-between gap-4 mb-4">
           <button
             onClick={() => setOpenModal(true)}
-            className="bg-[#B3DEC1] px-4 py-2 rounded-lg font-medium hover:opacity-90"
+            className="bg-[#B3DEC1] my-7 px-4 py-2 rounded-lg font-medium hover:opacity-90"
           >
             + Novo Colaborador
           </button>
