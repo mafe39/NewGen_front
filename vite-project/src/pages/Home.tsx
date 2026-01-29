@@ -1,10 +1,12 @@
-import { useEffect, useState } from "react";
 import CardColaboradoresHome from "../components/cardshome/CardColaboradoresHome";
-import { CardFolhasRecentes } from "../components/cardshome/CardFolhasRecentes";
+import CardFolhasRecentes from "../components/cardshome/CardFolhasRecentes";
+
 import CardHorasTrabalhadas from "../components/cardshome/CardHorasTrabalhadas";
 import CardTotalFolha from "../components/cardshome/CardTotaldaFolha";
 import { CardUltimosColaboradores } from "../components/cardshome/CardUltimosColaboradores";
+
 import { buscarColaboradores } from "../service/Service";
+import { useEffect, useState } from "react";
 
 export function Home() {
   const [totalColaboradores, setTotalColaboradores] = useState<number>(0);
@@ -40,8 +42,9 @@ export function Home() {
           <CardUltimosColaboradores />
           <CardFolhasRecentes />
         </div>
-
       </div>
     </div>
   );
 }
+
+export default Home;
