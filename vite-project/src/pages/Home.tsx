@@ -20,7 +20,7 @@ export function Home() {
   }, []);
 
   return (
-    <div className="flex-1 w-full bg-[#E5FCF5] font-normal">
+    <div className="flex-1 w-full bg-[#E5FCF5] font-normal py-20">
       <div className="max-w-6xl mx-auto px-6 py-12">
 
         <div className="text-center mb-12">

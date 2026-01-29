@@ -1,5 +1,5 @@
 import { NavLink, Link } from "react-router-dom";
-import logo from "../assets/logo-newgen-escuro.png";
+import logo from "../assets/logo-newgen-escuro2.png";
 
 export function Navbar() {
   const menuItems = [
