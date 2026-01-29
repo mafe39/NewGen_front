@@ -18,9 +18,14 @@ import DeletarColaboradores from "./components/colaboradores/DeletarColaboradore
 function App() {
   return (
     <BrowserRouter>
+      {/* NAVBAR FIXA */}
       <Navbar />
 
-      <main className="min-h-screen flex flex-col ">
+      {/* ESPAÇADOR — evita a navbar “comer” o conteúdo */}
+      <div className="h-28" />
+
+      {/* CONTEÚDO */}
+      <main className="min-h-screen flex flex-col">
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -45,3 +50,4 @@ function App() {
 }
 
 export default App;
+
