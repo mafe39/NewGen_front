@@ -1,29 +1,28 @@
-import type { FolhaDePagamento } from "../models/FolhaDePagamento"
+import type { FolhaDePagamento } from "../models/FolhaDePagamento";
 
-const BASE = "http://localhost:3000"
+const BASE = "http://localhost:3000";
 
-const FOLHA_URL = `${BASE}/folha-pagamento`
-const COLAB_URL = `${BASE}/colaboradores`
-
+const FOLHA_URL = `${BASE}/folha-pagamento`;
+const COLAB_URL = `${BASE}/colaboradores`;
 
 export async function listarFolhasPagamento(): Promise<FolhaDePagamento[]> {
-  const response = await fetch(FOLHA_URL)
+  const response = await fetch(FOLHA_URL);
 
   if (!response.ok) {
-    throw new Error("Erro ao buscar folhas de pagamento")
+    throw new Error("Erro ao buscar folhas de pagamento");
   }
 
-  return response.json()
+  return response.json();
 }
 
 export async function criarFolhaPagamento(dados: {
-  idColaborador: number
-  totalHoras: number
-  valorHora: number
-  descontos: number
-  bonus: number
+  idColaborador: number;
+  totalHoras: number;
+  valorHora: number;
+  descontos: number;
+  bonus: number;
 }) {
-  const response = await fetch("http://localhost:3000/folha-pagamento", {
+  const response = await fetch(FOLHA_URL, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
@@ -35,58 +34,56 @@ export async function criarFolhaPagamento(dados: {
         id: dados.idColaborador,
       },
     }),
-  })
+  });
 
   if (!response.ok) {
-    throw new Error("Erro ao criar folha de pagamento")
+    throw new Error("Erro ao criar folha de pagamento");
   }
 
-  return response.json()
+  return response.json();
 }
 
-
 export async function atualizarFolhaPagamento(dados: {
-  id: number
-  totalHoras: number
-  valorHora: number
-  descontos: number
-  bonus: number
+  id: number;
+  totalHoras: number;
+  valorHora: number;
+  descontos: number;
+  bonus: number;
 }) {
   const response = await fetch(FOLHA_URL, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(dados),
-  })
+  });
 
   if (!response.ok) {
-    throw new Error("Erro ao atualizar folha de pagamento")
+    throw new Error("Erro ao atualizar folha de pagamento");
   }
 
-  return response.json()
+  return response.json();
 }
 
 export async function deletarFolhaPagamento(id: number) {
   const response = await fetch(`${FOLHA_URL}/${id}`, {
     method: "DELETE",
-  })
+  });
 
   if (!response.ok) {
-    throw new Error("Erro ao deletar folha de pagamento")
+    throw new Error("Erro ao deletar folha de pagamento");
   }
 }
 
-
 export interface Colaborador {
-  id: number
-  nome: string
+  id: number;
+  nome: string;
 }
 
 export async function listarColaboradores(): Promise<Colaborador[]> {
-  const response = await fetch(COLAB_URL)
+  const response = await fetch(COLAB_URL);
 
   if (!response.ok) {
-    throw new Error("Erro ao buscar colaboradores")
+    throw new Error("Erro ao buscar colaboradores");
   }
 
-  return response.json()
+  return response.json();
 }
