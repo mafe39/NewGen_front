@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Users } from "@phosphor-icons/react";
+import { UsersIcon } from "@phosphor-icons/react";
 import { buscarColaboradores } from "../../service/Service";
 import { Link } from "react-router-dom";
 
@@ -31,7 +31,7 @@ function CardColaboradoresHome() {
        
         <div className="p-6 pb-4">
           <div className="w-fit p-3 rounded-lg">
-            <Users size={28} className="text-[#2B3D4F]" />
+            <UsersIcon size={28} className="text-[#2B3D4F]" />
           </div>
 
           <p className="text-4xl font-bold text-gray-800 mt-4">

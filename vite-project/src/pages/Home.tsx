@@ -19,13 +19,13 @@ export function Home() {
   }, []);
 
   return (
-    /* FUNDO FULL WIDTH – SEM EMPURRAR PARA BAIXO */
+    
     <div className="flex-1 w-full bg-[#E5FCF5]">
 
-      {/* CONTEÚDO ALINHADO COM A NAVBAR (IGUAL ÀS OUTRAS PÁGINAS) */}
+      
       <div className="max-w-7xl mx-auto px-6 py-12">
 
-        {/* TÍTULO */}
+        
         <div className="text-center mb-12">
           <h1 className="text-3xl font-semibold text-gray-800 mb-1">
             Bem-vindo ao Sistema New-Gen
@@ -35,14 +35,14 @@ export function Home() {
           </p>
         </div>
 
-        {/* CARDS SUPERIORES */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           <CardColaboradoresHome total={totalColaboradores} />
           <CardHorasTrabalhadas />
           <CardTotalFolha colaboradorId={0} />
         </div>
 
-        {/* CARDS INFERIORES */}
+        
         <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-6">
           <CardUltimosColaboradores />
           <CardFolhasRecentes />
